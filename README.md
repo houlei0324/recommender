@@ -28,4 +28,5 @@ Run:
 
 ### Recommender
 
+		cd bin
 		python3 ./recommender.py --query --query_class  and other params
