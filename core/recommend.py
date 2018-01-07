@@ -15,16 +15,16 @@ FLAGS = gflags.FLAGS
 
 gflags.DEFINE_string('query', '0', 'the query id')
 gflags.DEFINE_string('query_class', 'user', "the class of query, to be one of \
-                    user and movie")
+user and movie")
 gflags.DEFINE_string('sim_method', 'cos', 'the method of calculate the sim of \
-                    users or items, including \
-                    cos -- Cosine sim \
-                    tan -- Tanimoto (Jaccard) Coefficient sim \
-                    pcc -- Pearson Correlation Coefficient sim \
+users or items, including\n \
+                    cos -- Cosine sim\n \
+                    tan -- Tanimoto (Jaccard) Coefficient sim\n \
+                    pcc -- Pearson Correlation Coefficient sim\n \
                     ed  -- Euclidean Distance sim')
 gflags.DEFINE_string('choose_method', 'knn', 'the method of choose neighbors, \
-                    the following methods can be choosed \
-                    knn -- k nearest neighbors \
+                    the following methods can be choosed\n \
+                    knn -- k nearest neighbors\n \
                     thd -- threshold based neighbors')
 gflags.DEFINE_integer('k', 5, 'the number choosed when using knn')
 gflags.DEFINE_float('threshold', 0.7, 'the threshold when using thd')
