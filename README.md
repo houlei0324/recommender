@@ -19,13 +19,13 @@ Run:
 
 -- DSGD
    
-   cd bin
-   python3 ./partition.py  $nfrag  # to partition dataset
-   ./sync.sh db
-   ./run $nworker $nfrag
-   ./agg_result.sh
-   python3 ./clean.py
+cd bin
+python3 ./partition.py  $nfrag  # to partition dataset
+./sync.sh db
+./run $nworker $nfrag
+./agg_result.sh
+python3 ./clean.py
 
 -- Recommender
 
-   python3 ./recommender.py --query --query_class  and other params
+python3 ./recommender.py --query --query_class  and other params
