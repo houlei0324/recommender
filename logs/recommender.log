@@ -1,0 +1,3 @@
+2018-01-07 09:53:43,776 recommend.py[line:115] INFO: [Recommender] qet query : user-0
+2018-01-07 09:54:34,732 recommend.py[line:90] INFO: [Recommender] choose neighbors using knn
+2018-01-07 09:54:35,076 recommend.py[line:147] INFO: [('1139', 0.66542343056607112), ('37757', 0.61452830087230192), ('55344', 0.61328547796172483), ('52224', 0.59107668548538639), ('21195', 0.59037377410778724)]

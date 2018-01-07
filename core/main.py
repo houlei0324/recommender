@@ -4,6 +4,7 @@ __date__ = '12/12/2017'
 import sys
 import os
 import gflags
+import time
 import mpi4py.MPI as MPI
 import numpy as np
 
@@ -27,7 +28,7 @@ gflags.DEFINE_float('lambd', 0.01, 'regulatization, (lambda)')
 gflags.DEFINE_float('tolerance', 1.0, 'tolerance')
 
 INFO = log.logger
-log.init_log(INFO, '../logs/dsgd.log')
+log.init_log(INFO,'../logs/dsgd.log')
 # instance for invoking MPI related functions
 comm = MPI.COMM_WORLD
 # the node rank in the whole community
@@ -40,10 +41,22 @@ def run(argv):
     file_size = 20000001
 
     data_dir = os.path.dirname(os.path.abspath(FLAGS.dataset)) + "/parts"
+    load_time = 0
+    run_time = 0
+    if comm_rank == 0:
+        load_time = time.time()
     user_movie = LOAD.data_loading(data_dir, comm, comm_rank, comm_size)
     comm.barrier()
+    if comm_rank == 0:
+        load_time = time.time() - load_time
 
     mf_dsgd = dsgd.DSGD(user_movie, comm, comm_rank, FLAGS.dim, FLAGS.nfrag, file_size,
                         FLAGS.init_step_size, FLAGS.step_size_offset, FLAGS.step_size_pow,
                         FLAGS.lambd, FLAGS.tolerance, FLAGS.max_iteration, FLAGS.result_dir)
+    if comm_rank == 0:
+        run_time = time.time()
     mf_dsgd.run_dsgd()
+    if comm_rank == 0:
+        run_time = time.time() - run_time
+        INFO.info('[DSGD] load data time: ' + str(load_time))
+        INFO.info('[DSGD] run time: ' + str(run_time))
