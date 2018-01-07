@@ -5,7 +5,6 @@ import sys
 import os
 import re
 import gflags
-import shutil
 import mpi4py.MPI as MPI
 import numpy as np
 

@@ -4,6 +4,7 @@ __date__ = '12/15/2017'
 import sys
 import os
 import re
+import time
 import math
 import gflags
 import numpy as np
@@ -110,7 +111,7 @@ class Recommend:
 
 def run_recommender(argv):
     FLAGS(argv)
-
+    query_time = time.time()
     recommend = Recommend(FLAGS.query_class, FLAGS.sim_method, FLAGS.choose_method, FLAGS.threshold, FLAGS.k)
     INFO.info('[Recommender] qet query : ' + FLAGS.query_class + '-' + FLAGS.query)
     recommend.getQuery(FLAGS.query)
@@ -145,5 +146,6 @@ def run_recommender(argv):
             print(num)
 
     INFO.info(recommend.choose_neighbors())
+    INFO.info('[Recommender] query time: ' + str(query_time - time.time() + 's')
 
 

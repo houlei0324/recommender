@@ -58,5 +58,5 @@ def run(argv):
     mf_dsgd.run_dsgd()
     if comm_rank == 0:
         run_time = time.time() - run_time
-        INFO.info('[DSGD] load data time: ' + str(load_time))
-        INFO.info('[DSGD] run time: ' + str(run_time))
+        INFO.info('[DSGD] load data time: ' + str(load_time) + 's')
+        INFO.info('[DSGD] run time: ' + str(run_time) + 's')
