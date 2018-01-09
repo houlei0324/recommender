@@ -148,7 +148,9 @@ def run_recommender(argv):
         if num % 10000 == 0:
             print(num)
 
-    INFO.info(recommend.choose_neighbors())
+    results = recommend.choose_neighbors()
+    for item in results:
+        INFO.info('[Results] ' + item[0] + ' : ' + str(item[1]))
     query_time = time.time() - query_time
     INFO.info('[Recommender] query time: ' + str(query_time) + 's')
 
