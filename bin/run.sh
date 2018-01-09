@@ -16,5 +16,10 @@ scp -r $RESULT_DIR ubuntu@bd5:$RESULT_DIR
 
 mpirun -np $num_worker -hostfile ../conf/host python3 start.py\
   --nfrag $num_frag \
-  --tolerance 3 \
+  --tolerance 0 \
+  --dim 50 \
+  --init_step_size  0.005 \
+  --step_size_pow  0 \
+  --lambd  0.01 \
+  --max_iteration 20 \
   --result_dir $RESULT_DIR

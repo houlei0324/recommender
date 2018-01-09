@@ -19,7 +19,7 @@ gflags.DEFINE_string('result_dir', '../results', 'the dir for results')
 gflags.DEFINE_integer('nfrag', 4, "the number of fragments")
 gflags.DEFINE_integer('dim', 50, 'the dim of parameter vectors')
 gflags.DEFINE_integer('max_iteration', '100', 'the max iteration to run')
-gflags.DEFINE_float('init_step_size', 0.5, 'init learning rate')
+gflags.DEFINE_float('init_step_size', 0.005, 'init learning rate')
 gflags.DEFINE_float('step_size_offset', 100.0, 'sgd step size at iteration t is \
                     init_step_size * (step_size_offset + t)^(-step_size_pow)')
 gflags.DEFINE_float('step_size_pow', 0.5, 'sgd step size at iteration t is \
